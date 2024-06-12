@@ -1,18 +1,15 @@
 #Library
 library(readxl)
-clean_rainmaunawili <- read_excel("Documents/SPICE/Original/Excel/clean_rainmaunawili.xlsx")
-clean_raingauge <- read_excel("Documents/SPICE/Original/Excel/clean_raingauge.xlsx")
-clean_ecoli <- read_excel("Documents/SPICE/Original/Excel/clean_ecoli.xlsx")
-magic_outer <- read_excel("Documents/SPICE/Original/Excel/clean_outer.xlsx")
-combined_data <- read_excel("Documents/SPICE/Original/Excel/combined_data.xlsx")
-Rain_Gauge_unclean <- read_excel("Documents/SPICE/Original/Excel/Rain Gauge unclean.xlsx")
-E_Coli_unclean <- read_excel("Documents/SPICE/Original/Excel/E-Coli unclean.xlsx")
-Outer_Magic_Island_unclean <- read_excel("Documents/SPICE/Original/Excel/Outer Magic Island unclean.xlsx")
-Maunawili_unclean <- read_excel("Documents/SPICE/Original/Excel/Unclean/Rain/Maunawili unclean.xlsx")
-Oahu_Visitors <- read_excel("Documents/SPICE/Oahu Visitors.xlsx")
-Wailupe_Rain_unclean <- read_excel("Documents/SPICE/Original/Excel/Unclean/Rain/Wailupe Rain unclean.xlsx")
-East_unclean <- read_excel("Documents/SPICE/Original/Excel/Unclean/EColi/East unclean.xlsx")
-Cromwells_unclean <- read_excel("Documents/SPICE/Original/Excel/Unclean/EColi/Cromwells unclean.xlsx")
+#ecoliunclean
+Cromwells_unclean <- read_excel("~/Documents/SPICE/Original/Excel/Unclean/EColi/Cromwells unclean.xlsx")
+E_Coli_unclean <- read_excel("~/Documents/SPICE/Original/Excel/Unclean/EColi/E-Coli unclean.xlsx")
+East_unclean <- read_excel("~/Documents/SPICE/Original/Excel/Unclean/EColi/East unclean.xlsx")
+Outer_Magic_Island_unclean <- read_excel("~/Documents/SPICE/Original/Excel/Unclean/EColi/Outer Magic Island unclean.xlsx")
+#rainunclean
+Maunawili_unclean <- read_excel("~/Documents/SPICE/Original/Excel/Unclean/Rain/Maunawili unclean.xlsx")
+Rain_Gauge_unclean <- read_excel("~/Documents/SPICE/Original/Excel/Unclean/Rain/Rain Gauge unclean.xlsx")
+Wailupe_Rain_unclean <- read_excel("~/Documents/SPICE/Original/Excel/Unclean/Rain/Wailupe Rain unclean.xlsx")
+
 
 # Ensure that the DATE columns are in Date format
 clean_ecoli$`collection date` <- as.Date(clean_ecoli$`collection date`)
@@ -42,6 +39,7 @@ lines(clean_raingauge$DATE, clean_raingauge$DlySum,
 legend("topright", legend = c("Enterococcus", "Rainfall"),
        col = c("red", "blue"), pch = c(19, NA), lty = c(NA, 1), cex = 0.8)
 
+# Inner Ecoli and Maunawili Rain
 plot(E_Coli_unclean$`collection date`, E_Coli_unclean$`Enterococcus (mpn/100mL)`,
      main = "Comparison of Inner Enterococcus and Maunawili",
      xlab = "Date",
@@ -61,6 +59,7 @@ lines(Maunawili_unclean$DATE, Maunawili_unclean$DlySum,
 
 legend("topright", legend = c("Enterococcus", "Rainfall"),
        col = c("red", "blue"), pch = c(19, NA), lty = c(NA, 1), cex = 0.8)
+
 
 plot(clean_outer$`collection date`, clean_outer$`Enterococcus (mpn/100mL)`,
      main = "Comparison of Outer Enterococcus and Maunawili",
@@ -191,5 +190,37 @@ lines(clean_raingauge$DATE, clean_raingauge$DlySum,
 legend("topleft", legend = c("Enterococcus", "Rainfall"),
        col = c("black", "blue"), pch = c(19, NA), lty = c(NA, 1), cex = 0.8)
 
+# Graphing Inner to Outer
+install.packages("readxlsx")
+install.packages("lubridate")
+install.packages("ggplot2")
+install.packages("scales")
+install.packages("gridExtra")
+install.packages("ggthemes", dependencies = TRUE)
+install.packages("janitor")
+install.packages("pivotaltrackR")
+install.packages("pivottabler")
+install.packages("here")
+install.packages("tidyverse")
+install.packages("plotly")
+install.packages("lubridate")
 
+library(readxl)
+library(lubridate)# for working with dates
+library(ggplot2)  # for creating graphs
+library(scales)   # to access breaks/formatting functions
+library(gridExtra) # for arranging plots
+library(janitor)
+library(pivotaltrackR)
+library(pivottabler)
+library(here)
+library(tidyverse)
+library(plotly)``
+library(lubridate)
 
+ggplot(combined_data, aes(`collection date`)) + 
+  geom_line(aes(y = `Enterococcus (mpn/100mL).x`, color = 'darkblue')) + 
+  geom_line(aes(y = `Enterococcus (mpn/100mL).y`, color = 'red')) +
+  scale_color_manual(values = c('darkblue', 'red'), 
+                     labels = c('inner', 'outer'))+
+  ggtitle("Comparing Enterococcus to Outer and Inner Magic Island")  # Title added here
