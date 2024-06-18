@@ -368,6 +368,7 @@ lines(Waialae_Beach_Park_historical$`collection date`, Waialae_Beach_Park_histor
       col = "blue",
       lty = "solid")
 
+#pushing to GitHub
 # Graphing Outer Ecoli
 plot(Outer_Magic_Island_unclean$`collection date`, Outer_Magic_Island_unclean$`Enterococcus (mpn/100mL)`,
      main = "Outer Magic Island Enterococcus",
