@@ -1,5 +1,9 @@
 #Library
 library(readxl)
+#recreation data
+just_fish_and_boat <- read_excel("~/Documents/SPICE/just fish and boat.xlsx")
+Recreation_data <- read_excel("~/Documents/SPICE/Recreation data.xlsx")
+
 #new ecoli data
 Waialae_Beach_Park_historical <- read_excel("~/Documents/SPICE/New Data/Waialae Beach Park historical.xlsx")
 South_Kaneohe_Bay_historical <- read_excel("~/Documents/SPICE/New Data/South Kaneohe Bay historical.xlsx")
@@ -442,3 +446,48 @@ ggplot(combined_data, aes(`collection date`)) +
   scale_color_manual(values = c('darkblue', 'red'), 
                      labels = c('inner', 'outer'))+
   ggtitle("Comparing Enterococcus to Outer and Inner Magic Island")  # Title added here
+
+#recreation data
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+
+# Define your data
+activities <- c("Spear fishing", "Gathering of marine resources", "Boating", "Diving for recreation",
+                "Canoeing or kayaking", "Fishing from boat or shore using a pole, line, or net",
+                "Waterside or beach camping", "Wave riding", "Snorkeling", "Swimming or wading",
+                "Beach recreation")
+
+never <- c(1486, 1477, 1365, 1361, 1224, 1171, 1031, 996, 843, 390, 381)
+once_a_month_or_less <- c(173, 226, 298, 249, 405, 402, 604, 384, 599, 694, 759)
+two_three_times_a_month <- c(49, 28, 42, 57, 65, 77, 70, 140, 159, 289, 279)
+four_times_a_month_or_more <- c(47, 22, 52, 87, 61, 103, 50, 235, 154, 383, 337)
+
+# Create a data frame
+activity_data <- data.frame(Activity = activities,
+                            Never = never,
+                            `Once a month or less` = once_a_month_or_less,
+                            `2-3 Times a month` = two_three_times_a_month,
+                            `4 times a month or more` = four_times_a_month_or_more)
+
+# Create a data frame
+activity_data <- data.frame(Activity = activities,
+                            Never = never,
+                            `Once a month or less` = once_a_month_or_less,
+                            `2-3 Times a month` = two_three_times_a_month,
+                            `4 times a month or more` = four_times_a_month_or_more)
+
+# Plot using ggplot2 with grouped bars
+ggplot(activity_data_long, aes(x = Activity, y = Count, fill = Frequency)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  labs(title = "Frequency of Activities by Frequency Category",
+       x = "Activity",
+       y = "Count",
+       fill = "Frequency") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_brewer(palette = "Set3")
+
+
+
+
+
