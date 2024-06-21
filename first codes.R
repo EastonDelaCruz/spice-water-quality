@@ -448,6 +448,7 @@ ggplot(combined_data, aes(`collection date`)) +
   ggtitle("Comparing Enterococcus to Outer and Inner Magic Island")  # Title added here
 
 #recreation data
+#recreation data
 library(ggplot2)
 library(tidyr)
 library(dplyr)
@@ -477,15 +478,24 @@ activity_data <- data.frame(Activity = activities,
                             `2-3 Times a month` = two_three_times_a_month,
                             `4 times a month or more` = four_times_a_month_or_more)
 
+# Reshape data from wide to long format for plotting
+activity_data_long <- activity_data %>%
+  pivot_longer(cols = -Activity, names_to = "Frequency", values_to = "Count")
+
 # Plot using ggplot2 with grouped bars
 ggplot(activity_data_long, aes(x = Activity, y = Count, fill = Frequency)) +
   geom_bar(stat = "identity", position = position_dodge()) +
-  labs(title = "Frequency of Activities by Frequency Category",
+  labs(title = "2020 Recreation Data",
        x = "Activity",
        y = "Count",
        fill = "Frequency") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   scale_fill_brewer(palette = "Set3")
+
+
+
+  
+
 
 
 
