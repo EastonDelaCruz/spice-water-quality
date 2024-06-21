@@ -448,7 +448,6 @@ ggplot(combined_data, aes(`collection date`)) +
   ggtitle("Comparing Enterococcus to Outer and Inner Magic Island")  # Title added here
 
 #recreation data
-#recreation data
 library(ggplot2)
 library(tidyr)
 library(dplyr)
