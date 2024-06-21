@@ -170,28 +170,6 @@ plot(Wailupe_Rain_unclean$DATE, Wailupe_Rain_unclean$DlySum,
      ylim = c(0,850),
      type = "l")
 
-# Graphing East Ecoli
-plot(East_unclean$`collection date`, East_unclean$`Enterococcus (mpn/100mL)`,
-     main = "Ka'alawai East Enterococcus Over Time",
-     xlab = "Date",
-     ylab = "Enterococcus (mpn/100mL)",
-     col = "red",
-     ylim = c(0, 27000),
-     pch = 19,
-     cex = 0.4,
-     type = "l")
-
-# Graphing Cromwells Ecoli
-plot(Cromwells_unclean$`collection date`, Cromwells_unclean$`Enterococcus (mpn/100mL)`,
-     main = "Cromwells Enterococcus Over Time",
-     xlab = "Date",
-     ylab = "Enterococcus (mpn/100mL)",
-     col = "red",
-     ylim = c(0,5500),
-     pch = 19,
-     cex = 0.4,
-     type = "l")
-
 # Graphing Chocolates Ecoli
 plot(Chocolates_historical$`collection date`, Chocolates_historical$`Enterococcus (mpn/100mL)`,
      main = "Chocolates Enterococcus 2020",
@@ -249,7 +227,7 @@ plot(Ka_alawai_Black_Point_East_historical$`collection date`, Ka_alawai_Black_Po
      type ="p")
 
 lines(Ka_alawai_Black_Point_East_historical$`collection date`, Ka_alawai_Black_Point_East_historical$`Enterococcus (mpn/100mL)`,
-      col = "blue",
+      col = "black",
       lty = "solid")
 
 # Graphing Kahalu'u
@@ -264,7 +242,7 @@ plot(Kahalu_u_historical$`collection date`, Kahalu_u_historical$`Enterococcus (m
      type ="p")
 
 lines(Kahalu_u_historical$`collection date`, Kahalu_u_historical$`Enterococcus (mpn/100mL)`,
-      col = "orange",
+      col = "black",
       lty = "solid")
 
 # Graphing Kaimalino
@@ -279,7 +257,7 @@ plot(Kaimalino_historical$`collection date`, Kaimalino_historical$`Enterococcus 
      type ="p")
 
 lines(Kaimalino_historical$`collection date`, Kaimalino_historical$`Enterococcus (mpn/100mL)`,
-      col = "lightblue",
+      col = "black",
       lty = "solid")
 
 # Graphing Kuli'ou'ou
@@ -294,7 +272,7 @@ plot(Kuli_ou_ou_Stream_historical$`collection date`, Kuli_ou_ou_Stream_historica
      type ="p")
 
 lines(Kuli_ou_ou_Stream_historical$`collection date`, Kuli_ou_ou_Stream_historical$`Enterococcus (mpn/100mL)`,
-      col = "brown",
+      col = "black",
       lty = "solid")
 
 # Graphing Magic Island Bowls
@@ -309,7 +287,7 @@ plot(Magic_Island_Bowls_historical$`collection date`, Magic_Island_Bowls_histori
      type ="p")
 
 lines(Magic_Island_Bowls_historical$`collection date`, Magic_Island_Bowls_historical$`Enterococcus (mpn/100mL)`,
-      col = "purple",
+      col = "black",
       lty = "solid")
 
 # Graphing Magic Island Canoe Launch
@@ -332,14 +310,14 @@ plot(Pupukea_Tidepools_historical$`collection date`, Pupukea_Tidepools_historica
      main = "Pupukea Tidepools Enterococcus 2020",
      xlab = "Date",
      ylab = "Enterococcus (mpn/100mL)",
-     col = "black",
+     col = "red",
      ylim = c(0,250),
      pch = 19,
      cex = 0.4,
      type ="p")
 
 lines(Pupukea_Tidepools_historical$`collection date`, Pupukea_Tidepools_historical$`Enterococcus (mpn/100mL)`,
-      col = "orange",
+      col = "black",
       lty = "solid")
 
 # Graphing South Kaneohe Bay
@@ -354,7 +332,7 @@ plot(South_Kaneohe_Bay_historical$`collection date`, South_Kaneohe_Bay_historica
      type ="p")
 
 lines(South_Kaneohe_Bay_historical$`collection date`, South_Kaneohe_Bay_historical$`Enterococcus (mpn/100mL)`,
-      col = "green",
+      col = "black",
       lty = "solid")
 
 # Graphing Waialae Beach Park
@@ -362,14 +340,14 @@ plot(Waialae_Beach_Park_historical$`collection date`, Waialae_Beach_Park_histori
      main = "Waialae Beach Park Enterococcus 2020",
      xlab = "Date",
      ylab = "Enterococcus (mpn/100mL)",
-     col = "black",
+     col = "red",
      ylim = c(0,500),
      pch = 19,
      cex = 0.4,
      type ="p")
 
 lines(Waialae_Beach_Park_historical$`collection date`, Waialae_Beach_Park_historical$`Enterococcus (mpn/100mL)`,
-      col = "blue",
+      col = "black",
       lty = "solid")
 
 #pushing to GitHub
